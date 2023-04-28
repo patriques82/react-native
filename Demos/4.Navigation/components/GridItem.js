@@ -4,7 +4,7 @@ import { Pressable, View, Text } from "react-native";
 
 const GridItem = ({ title, color }) => {
   return (
-    <View style={styles.gridContainer}>
+    <View style={[styles.gridContainer, { backgroundColor: color }]}>
       <Pressable
         style={({ pressed }) => [
           styles.button,
