@@ -1,10 +1,11 @@
+import { Platform } from "react-native";
 import { StyleSheet } from "react-native";
 import { Pressable, View, Text } from "react-native";
 
 const GridItem = ({ title, color }) => {
   return (
     <View style={styles.gridContainer}>
-      <Pressable style={styles.button}>
+      <Pressable style={styles.button} android_ripple={{ color: "#ccc" }}>
         <View style={styles.innerContainer}>
           <Text style={styles.title}>{title}</Text>
         </View>
@@ -25,6 +26,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 8,
+    overflow: Platform.OS === "android" ? "hidden" : "visible",
   },
   button: {
     flex: 1,
