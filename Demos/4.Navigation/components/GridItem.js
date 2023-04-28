@@ -6,7 +6,7 @@ const GridItem = ({ title, color }) => {
     <View style={styles.gridContainer}>
       <Pressable style={styles.button}>
         <View style={styles.innerContainer}>
-          <Text>{title}</Text>
+          <Text style={styles.title}>{title}</Text>
         </View>
       </Pressable>
     </View>
@@ -35,6 +35,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     justifyContent: "center",
     alignItems: "center",
+  },
+  title: {
+    fontWeight: "bold",
+    fontSize: 18,
   },
 });
 
