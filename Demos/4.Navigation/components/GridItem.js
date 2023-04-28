@@ -5,7 +5,13 @@ import { Pressable, View, Text } from "react-native";
 const GridItem = ({ title, color }) => {
   return (
     <View style={styles.gridContainer}>
-      <Pressable style={styles.button} android_ripple={{ color: "#ccc" }}>
+      <Pressable
+        style={({ pressed }) => [
+          styles.button,
+          pressed ? styles.buttonPressed : null,
+        ]}
+        android_ripple={{ color: "#ccc" }}
+      >
         <View style={styles.innerContainer}>
           <Text style={styles.title}>{title}</Text>
         </View>
@@ -30,6 +36,9 @@ const styles = StyleSheet.create({
   },
   button: {
     flex: 1,
+  },
+  buttonPressed: {
+    opacity: 0.5,
   },
   innerContainer: {
     flex: 1,
