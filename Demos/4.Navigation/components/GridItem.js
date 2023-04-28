@@ -2,7 +2,7 @@ import { Platform } from "react-native";
 import { StyleSheet } from "react-native";
 import { Pressable, View, Text } from "react-native";
 
-const GridItem = ({ title, color }) => {
+const GridItem = ({ title, color, onPress }) => {
   return (
     <View style={[styles.gridContainer, { backgroundColor: color }]}>
       <Pressable
@@ -11,6 +11,7 @@ const GridItem = ({ title, color }) => {
           pressed ? styles.buttonPressed : null,
         ]}
         android_ripple={{ color: "#ccc" }}
+        onPress={onPress}
       >
         <View style={styles.innerContainer}>
           <Text style={styles.title}>{title}</Text>
