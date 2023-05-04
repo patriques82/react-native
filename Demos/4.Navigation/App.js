@@ -9,13 +9,25 @@ import MealsOverviewScreen from "./screens/MealsOverviewScreen";
 
 const Stack = createStackNavigator();
 
+// gå igenom https://reactnavigation.org/docs/headers/
+
 export default function App() {
   return (
     <>
       <StatusBar style="light" />
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="MealsCategories" component={CategoriesScreen} />
+          <Stack.Screen
+            name="MealsCategories"
+            component={CategoriesScreen}
+            options={{
+              title: "All Categories",
+              headerStyle: {
+                backgroundColor: "#c95858",
+              },
+              headerTintColor: "white",
+            }}
+          />
           <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} />
         </Stack.Navigator>
       </NavigationContainer>
