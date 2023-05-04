@@ -1,8 +1,15 @@
 import { Platform } from "react-native";
 import { StyleSheet } from "react-native";
 import { Pressable, View, Text } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-const GridItem = ({ title, color, onPress }) => {
+const GridItem = ({ title, color }) => {
+  const navigation = useNavigation();
+
+  const pressHandler = () => {
+    navigation.navigate("MealsOverview");
+  };
+
   return (
     <View style={[styles.gridContainer, { backgroundColor: color }]}>
       <Pressable
@@ -11,7 +18,7 @@ const GridItem = ({ title, color, onPress }) => {
           pressed ? styles.buttonPressed : null,
         ]}
         android_ripple={{ color: "#ccc" }}
-        onPress={onPress}
+        onPress={pressHandler}
       >
         <View style={styles.innerContainer}>
           <Text style={styles.title}>{title}</Text>
