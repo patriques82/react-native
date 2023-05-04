@@ -1,14 +1,13 @@
 import { View, Text, Pressable, Image, StyleSheet } from "react-native";
-import { useRoute, useNavigation } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 
 const MealItem = (props) => {
   const navigation = useNavigation();
-  const route = useRoute();
 
-  const { title, imageUrl, duration, complexity, affordability } = props;
+  const { id, title, imageUrl, duration, complexity, affordability } = props;
 
   const pressHandler = () => {
-    navigation.navigate("MealDetails");
+    navigation.navigate("MealDetails", { mealId: id });
   };
 
   return (
