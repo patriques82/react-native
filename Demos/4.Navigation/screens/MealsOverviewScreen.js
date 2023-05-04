@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View } from "react-native";
+import { useRoute } from "@react-navigation/native";
 
-// https://reactnavigation.org/docs/route-prop/
-
-const MealsOverviewScreen = ({ route }) => {
+const MealsOverviewScreen = () => {
+  const route = useRoute();
   const categoryId = route.params.categoryId;
 
   return (
