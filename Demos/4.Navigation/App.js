@@ -6,6 +6,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import CategoriesScreen from "./screens/CategoriesScreen";
 import MealsOverviewScreen from "./screens/MealsOverviewScreen";
+import MealDetailsScreen from "./screens/MealDetailsScreen";
 
 const Stack = createStackNavigator();
 
@@ -36,6 +37,7 @@ export default function App() {
             }}
           />
           <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} />
+          <Stack.Screen name="MealDetails" component={MealDetailsScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
