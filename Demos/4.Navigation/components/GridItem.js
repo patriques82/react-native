@@ -3,11 +3,11 @@ import { StyleSheet } from "react-native";
 import { Pressable, View, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-const GridItem = ({ title, color }) => {
+const GridItem = ({ title, color, id }) => {
   const navigation = useNavigation();
 
   const pressHandler = () => {
-    navigation.navigate("MealsOverview");
+    navigation.navigate("MealsOverview", { categoryId: id });
   };
 
   return (

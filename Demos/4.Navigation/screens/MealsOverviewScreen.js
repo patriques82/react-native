@@ -1,9 +1,13 @@
 import { StyleSheet, Text, View } from "react-native";
 
-const MealsOverviewScreen = () => {
+// https://reactnavigation.org/docs/route-prop/
+
+const MealsOverviewScreen = ({ route }) => {
+  const categoryId = route.params.categoryId;
+
   return (
     <View style={styles.container}>
-      <Text>MealsOverviewScreen</Text>
+      <Text>MealsOverviewScreen - {categoryId} </Text>
     </View>
   );
 };

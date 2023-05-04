@@ -4,7 +4,13 @@ import GridItem from "../components/GridItem";
 
 const CategoriesScreen = () => {
   const renderGridItem = (itemData) => {
-    return <GridItem title={itemData.item.title} color={itemData.item.color} />;
+    return (
+      <GridItem
+        title={itemData.item.title}
+        color={itemData.item.color}
+        id={itemData.item.id}
+      />
+    );
   };
 
   return (
