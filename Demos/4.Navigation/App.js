@@ -1,7 +1,7 @@
 import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet } from "react-native";
-import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import CategoriesScreen from "./screens/CategoriesScreen";
@@ -10,9 +10,7 @@ import MealsOverviewScreen from "./screens/MealsOverviewScreen";
 const Stack = createStackNavigator();
 
 const Theme = {
-  ...DefaultTheme,
   colors: {
-    ...DefaultTheme.colors,
     background: "rgb(244, 202, 202)",
   },
 };
