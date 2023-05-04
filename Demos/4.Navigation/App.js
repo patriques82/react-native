@@ -9,8 +9,6 @@ import MealsOverviewScreen from "./screens/MealsOverviewScreen";
 
 const Stack = createStackNavigator();
 
-// gå igenom https://reactnavigation.org/docs/themes/
-
 const Theme = {
   ...DefaultTheme,
   colors: {
@@ -24,19 +22,28 @@ export default function App() {
     <>
       <StatusBar style="light" />
       <NavigationContainer theme={Theme}>
-        <Stack.Navigator>
+        <Stack.Navigator
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: "#c95858",
+            },
+            headerTintColor: "white",
+          }}
+        >
           <Stack.Screen
             name="MealsCategories"
             component={CategoriesScreen}
             options={{
               title: "All Categories",
-              headerStyle: {
-                backgroundColor: "#c95858",
-              },
-              headerTintColor: "white",
             }}
           />
-          <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} />
+          <Stack.Screen
+            name="MealsOverview"
+            component={MealsOverviewScreen}
+            options={{
+              title: "Overview",
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
