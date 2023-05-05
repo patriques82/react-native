@@ -1,4 +1,5 @@
 import { StyleSheet, FlatList, View } from "react-native";
+import { useEffect } from "react";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { MEALS, CATEGORIES } from "../data/dummy-data";
 import MealItem from "../components/MealItem.js";
@@ -12,16 +13,12 @@ const MealsOverviewScreen = () => {
     return meal.categoryIds.includes(categoryId);
   });
 
-  const category = CATEGORIES.find((category) => category.id === categoryId);
-  if (category) {
+  useEffect(() => {
+    const category = CATEGORIES.find((category) => category.id === categoryId);
     navigation.setOptions({
       title: category.title,
     });
-  } else {
-    navigation.setOptions({
-      title: "Unknown category",
-    });
-  }
+  });
 
   const renderMealItem = (itemData) => {
     const item = itemData.item;
