@@ -12,9 +12,9 @@ const MealsOverviewScreen = () => {
   const displayedMeals = MEALS.filter((meal) => {
     return meal.categoryIds.includes(categoryId);
   });
+  const category = CATEGORIES.find((category) => category.id === categoryId);
 
   useEffect(() => {
-    const category = CATEGORIES.find((category) => category.id === categoryId);
     navigation.setOptions({
       title: category.title,
     });
