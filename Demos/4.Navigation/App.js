@@ -1,6 +1,6 @@
 import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Button, ScrollView } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
@@ -19,15 +19,30 @@ const Theme = {
   },
 };
 
-// Om du får plugin fel "expo start -c" för reset cache
+const DrawerItems = ({ navigation }) => {
+  return (
+    <ScrollView style={styles.drawer}>
+      <Button
+        title="Categories"
+        color="#c95858"
+        onPress={() => navigation.navigate("Categories")}
+      />
+      <Button
+        title="Favorites"
+        color="#c95858"
+        onPress={() => navigation.navigate("Favorites")}
+      />
+    </ScrollView>
+  );
+};
 
 const DrawerNavigator = () => {
   return (
     <Drawer.Navigator
+      drawerContent={(props) => <DrawerItems {...props} />}
       screenOptions={{
         headerStyle: { backgroundColor: "#c95858" },
         headerTintColor: "white",
-        sceneContainerStyle: { backgroundColor: "rgb(244, 202, 202)" },
       }}
     >
       <Drawer.Screen name="Categories" component={CategoriesScreen} />
@@ -64,5 +79,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  drawer: {
+    backgroundColor: "white",
   },
 });
