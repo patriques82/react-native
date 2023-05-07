@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { MEALS } from "../data/dummy-data";
 import MealDetails from "../components/MealDetails";
+import List from "../components/List";
 
 const MealDetailsScreen = () => {
   const route = useRoute();
@@ -29,8 +30,9 @@ const MealDetailsScreen = () => {
       <View style={styles.listOuterContainer}>
         <View style={styles.listContainer}>
           <Text>Ingredients</Text>
-
+          <List data={meal.ingredients} />
           <Text>Steps</Text>
+          <List data={meal.steps} />
         </View>
       </View>
     </ScrollView>
