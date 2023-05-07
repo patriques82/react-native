@@ -18,7 +18,7 @@ const MealsOverviewScreen = () => {
     navigation.setOptions({
       title: category.title,
     });
-  });
+  }, [categoryId]);
 
   const renderMealItem = (itemData) => {
     const item = itemData.item;

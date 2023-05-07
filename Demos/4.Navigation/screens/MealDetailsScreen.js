@@ -14,7 +14,7 @@ const MealDetailsScreen = () => {
     navigation.setOptions({
       title: meal.title,
     });
-  });
+  }, [mealId]);
 
   return (
     <ScrollView style={styles.rootContainer}>
