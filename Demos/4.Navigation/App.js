@@ -64,7 +64,13 @@ export default function App() {
             headerTintColor: "white",
           }}
         >
-          <Stack.Screen name="Drawer" component={DrawerNavigator} />
+          <Stack.Screen
+            name="Drawer"
+            component={DrawerNavigator}
+            options={{
+              headerShown: false,
+            }}
+          />
           <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} />
           <Stack.Screen name="MealDetails" component={MealDetailsScreen} />
         </Stack.Navigator>
@@ -82,5 +88,6 @@ const styles = StyleSheet.create({
   },
   drawer: {
     backgroundColor: "white",
+    marginTop: 30,
   },
 });
