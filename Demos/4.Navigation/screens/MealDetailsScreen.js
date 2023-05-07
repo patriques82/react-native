@@ -18,7 +18,9 @@ const MealDetailsScreen = () => {
     console.log("Pressed!");
   };
 
-  // https://kentcdodds.com/blog/useeffect-vs-uselayouteffect
+  // Gör dessa exempel i ny app
+  // https://reactnavigation.org/docs/drawer-navigator
+  // https://reactnavigation.org/docs/bottom-tab-navigator
 
   useLayoutEffect(() => {
     navigation.setOptions({
