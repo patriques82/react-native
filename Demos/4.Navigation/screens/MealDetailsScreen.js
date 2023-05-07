@@ -1,9 +1,11 @@
 import { Text, View, StyleSheet, ScrollView, Image } from "react-native";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { MEALS } from "../data/dummy-data";
+
 import MealDetails from "../components/MealDetails";
 import List from "../components/List";
+import IconButton from "../components/IconButton";
 
 const MealDetailsScreen = () => {
   const route = useRoute();
@@ -12,11 +14,26 @@ const MealDetailsScreen = () => {
   const mealId = route.params.mealId;
   const meal = MEALS.find((meal) => meal.id === mealId);
 
-  useEffect(() => {
+  const headerButtonPressHandler = () => {
+    console.log("Pressed!");
+  };
+
+  // https://kentcdodds.com/blog/useeffect-vs-uselayouteffect
+
+  useLayoutEffect(() => {
     navigation.setOptions({
       title: meal.title,
+      headerRight: () => {
+        return (
+          <IconButton
+            icon="star"
+            color="white"
+            onPress={headerButtonPressHandler}
+          />
+        );
+      },
     });
-  }, [mealId]);
+  }, [mealId, navigation]);
 
   return (
     <ScrollView style={styles.rootContainer}>
