@@ -2,6 +2,7 @@ import { Text, View, StyleSheet, ScrollView, Image } from "react-native";
 import { useEffect } from "react";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { MEALS } from "../data/dummy-data";
+import MealDetails from "../components/MealDetails";
 
 const MealDetailsScreen = () => {
   const route = useRoute();
@@ -20,7 +21,11 @@ const MealDetailsScreen = () => {
     <ScrollView style={styles.rootContainer}>
       <Image style={styles.image} source={{ uri: meal.imageUrl }} />
       <Text style={styles.title}>{meal.title}</Text>
-
+      <MealDetails
+        duration={meal.duration}
+        complexity={meal.complexity}
+        affordability={meal.affordability}
+      />
       <View style={styles.listOuterContainer}>
         <View style={styles.listContainer}>
           <Text>Ingredients</Text>
