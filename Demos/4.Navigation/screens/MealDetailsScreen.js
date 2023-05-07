@@ -15,8 +15,14 @@ const MealDetailsScreen = () => {
   const mealId = route.params.mealId;
   const meal = MEALS.find((meal) => meal.id === mealId);
 
+  const mealIsFavorite = favoriteMealsCtx.ids.includes(mealId);
+
   const headerButtonPressHandler = () => {
-    console.log(favoriteMealsCtx);
+    if (mealIsFavorite) {
+      favoriteMealsCtx.removeFavorite(mealId);
+    } else {
+      favoriteMealsCtx.addFavorite(mealId);
+    }
   };
 
   useLayoutEffect(() => {
@@ -25,14 +31,14 @@ const MealDetailsScreen = () => {
       headerRight: () => {
         return (
           <IconButton
-            icon="star"
+            icon={mealIsFavorite ? "star" : "star-outline"}
             color="white"
             onPress={headerButtonPressHandler}
           />
         );
       },
     });
-  }, [mealId, navigation]);
+  }, [mealIsFavorite]);
 
   return (
     <ScrollView style={styles.rootContainer}>
