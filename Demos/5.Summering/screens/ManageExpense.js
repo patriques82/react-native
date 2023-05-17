@@ -18,15 +18,15 @@ const ManageExpense = ({ route }) => {
   }, [navigation, expenseId]);
 
   const cancelHandler = () => {
-    console.log("cancel");
+    navigation.goBack();
   };
 
   const deleteHandler = () => {
-    console.log("delete");
+    navigation.goBack();
   };
 
   const confirmHandler = () => {
-    console.log("confirm");
+    navigation.goBack();
   };
 
   return (
