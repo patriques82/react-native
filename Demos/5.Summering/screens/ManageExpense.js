@@ -39,12 +39,16 @@ const ManageExpense = ({ route }) => {
           {isEditing ? "Update" : "Add"}
         </Button>
       </View>
-      <IconButton
-        icon="trash"
-        size={36}
-        color={GlobalStyles.colors.error500}
-        onPress={deleteHandler}
-      />
+      {isEditing && (
+        <View style={styles.deleteContainer}>
+          <IconButton
+            icon="trash"
+            color={GlobalStyles.colors.error500}
+            size={36}
+            onPress={deleteHandler}
+          />
+        </View>
+      )}
     </View>
   );
 };
@@ -63,6 +67,13 @@ const styles = StyleSheet.create({
   button: {
     minWidth: 120,
     marginHorizontal: 8,
+  },
+  deleteContainer: {
+    marginTop: 16,
+    paddingTop: 8,
+    borderTopWidth: 2,
+    borderTopColor: GlobalStyles.colors.primary200,
+    alignItems: "center",
   },
 });
 
