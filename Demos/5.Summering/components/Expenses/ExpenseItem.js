@@ -5,7 +5,7 @@ import moment from "moment/moment";
 const ExpenseItem = ({ description, amount, date }) => {
   const formattedDate = moment(date).format("YYYY-MM-DD");
   return (
-    <Pressable>
+    <Pressable style={({ pressed }) => pressed && styles.pressed}>
       <View style={styles.container}>
         <View>
           <Text style={[styles.textBase, styles.description]}>
@@ -22,6 +22,9 @@ const ExpenseItem = ({ description, amount, date }) => {
 };
 
 const styles = StyleSheet.create({
+  pressed: {
+    opacity: 0.75,
+  },
   container: {
     padding: 12,
     marginVertical: 8,
