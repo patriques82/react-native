@@ -6,13 +6,19 @@ import ManageExpense from "./screens/ManageExpense";
 import RecentExpenses from "./screens/RecentExpenses";
 import AllExpenses from "./screens/AllExpenses";
 import { NavigationContainer } from "@react-navigation/native";
+import { GlobalStyles } from "./constants/styles";
 
 const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator();
 
 const ExpensesOverview = () => {
   return (
-    <BottomTabs.Navigator>
+    <BottomTabs.Navigator
+      screenOptions={{
+        headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
+        headerTintColor: "white",
+      }}
+    >
       <BottomTabs.Screen name="RecentExpenses" component={RecentExpenses} />
       <BottomTabs.Screen name="AllExpenses" component={AllExpenses} />
     </BottomTabs.Navigator>
