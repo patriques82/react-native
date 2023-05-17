@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import { useLayoutEffect } from "react";
-import { View } from "react-native";
+import { View, StyleSheet } from "react-native";
 
 import IconButton from "../components/UI/IconButton";
 import { GlobalStyles } from "../constants/styles";
@@ -21,7 +21,7 @@ const ManageExpense = ({ route }) => {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       <IconButton
         icon="trash"
         size={36}
@@ -31,5 +31,13 @@ const ManageExpense = ({ route }) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 24,
+    backgroundColor: GlobalStyles.colors.primary800,
+  },
+});
 
 export default ManageExpense;
