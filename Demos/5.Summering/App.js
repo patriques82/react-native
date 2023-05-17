@@ -17,6 +17,8 @@ const ExpensesOverview = () => {
       screenOptions={{
         headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
         headerTintColor: "white",
+        tabBarStyle: { backgroundColor: GlobalStyles.colors.primary500 },
+        tabBarActiveTintColor: GlobalStyles.colors.accent500,
       }}
     >
       <BottomTabs.Screen name="RecentExpenses" component={RecentExpenses} />
