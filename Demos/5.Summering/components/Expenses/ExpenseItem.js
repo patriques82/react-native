@@ -6,8 +6,10 @@ const ExpenseItem = ({ description, amount, date }) => {
     <Pressable>
       <View style={styles.container}>
         <View>
-          <Text>{description}</Text>
-          <Text>{date.toString()}</Text>
+          <Text style={[styles.textBase, styles.description]}>
+            {description}
+          </Text>
+          <Text style={styles.textBase}>{date.toString()}</Text>
         </View>
         <View>
           <Text>{amount}</Text>
@@ -30,6 +32,14 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     shadowOffset: { width: 1, height: 1 },
     shadowOpacity: 0.4,
+  },
+  textBase: {
+    color: GlobalStyles.colors.primary50,
+  },
+  description: {
+    fontSize: 16,
+    marginBottom: 4,
+    fontWeight: "bold",
   },
 });
 
