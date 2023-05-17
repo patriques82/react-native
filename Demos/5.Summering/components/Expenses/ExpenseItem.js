@@ -1,7 +1,9 @@
 import { Pressable, Text, View, StyleSheet } from "react-native";
 import { GlobalStyles } from "../../constants/styles";
+import moment from "moment/moment";
 
 const ExpenseItem = ({ description, amount, date }) => {
+  const formattedDate = moment(date).format("YYYY-MM-DD");
   return (
     <Pressable>
       <View style={styles.container}>
@@ -9,7 +11,7 @@ const ExpenseItem = ({ description, amount, date }) => {
           <Text style={[styles.textBase, styles.description]}>
             {description}
           </Text>
-          <Text style={styles.textBase}>{date.toString()}</Text>
+          <Text style={styles.textBase}>{formattedDate}</Text>
         </View>
         <View style={styles.amountContainer}>
           <Text style={styles.amount}>{amount}</Text>
