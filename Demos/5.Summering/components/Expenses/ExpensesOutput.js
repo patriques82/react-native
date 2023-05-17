@@ -1,13 +1,12 @@
 import { View, Text, FlatList } from "react-native";
+import ExpensesSummary from "./ExpensesSummary";
+import ExpensesList from "./ExpensesList";
 
 const ExpensesOutput = ({ expenses }) => {
   return (
     <View>
-      <View>
-        <Text>Last 7 days</Text>
-        <Text>198 SEK</Text>
-      </View>
-      <FlatList />
+      <ExpensesSummary />
+      <ExpensesList />
     </View>
   );
 };
