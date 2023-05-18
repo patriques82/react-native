@@ -1,11 +1,10 @@
 import { Pressable, Text, View, StyleSheet } from "react-native";
-import moment from "moment/moment";
 import { useNavigation } from "@react-navigation/native";
-
 import { GlobalStyles } from "../../constants/styles";
+import { format } from "date-fns";
 
 const ExpenseItem = ({ id, description, amount, date }) => {
-  const formattedDate = moment(date).format("YYYY-MM-DD");
+  const formattedDate = format(date, "yyyy-MM-dd");
   const navigation = useNavigation();
 
   const pressHandler = () => {
