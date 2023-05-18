@@ -95,8 +95,8 @@ const expenseReducer = (state, action) => {
 const ExpensesCtxProvider = ({ children }) => {
   const [expenses, dispatch] = useReducer(expenseReducer, DUMMY_EXPENSES);
 
-  const addExpense = (expense) => {
-    dispatch({ type: "ADD", payload: expense });
+  const addExpense = (expenseData) => {
+    dispatch({ type: "ADD", payload: expenseData });
   };
 
   const deleteExpense = (id) => {
@@ -110,8 +110,8 @@ const ExpensesCtxProvider = ({ children }) => {
   const value = {
     expenses,
     addExpense,
-    deleteExpense,
     updateExpense,
+    deleteExpense,
   };
 
   return <ExpensesCtx.Provider value={value}>{children}</ExpensesCtx.Provider>;
