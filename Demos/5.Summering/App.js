@@ -9,6 +9,7 @@ import AllExpenses from "./screens/AllExpenses";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { GlobalStyles } from "./constants/styles";
 import IconButton from "./components/UI/IconButton";
+import ExpensesCtxProvider from "./store/expenses_ctx";
 
 const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator();
@@ -63,27 +64,29 @@ export default function App() {
   return (
     <>
       <StatusBar style="auto" />
-      <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
-            headerTintColor: "white",
-          }}
-        >
-          <Stack.Screen
-            name="ExpensesOverview"
-            component={ExpensesOverview}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="ManageExpense"
-            component={ManageExpense}
-            options={{
-              presentation: "modal", // syns mer i IOS
+      <ExpensesCtxProvider>
+        <NavigationContainer>
+          <Stack.Navigator
+            screenOptions={{
+              headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
+              headerTintColor: "white",
             }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
+          >
+            <Stack.Screen
+              name="ExpensesOverview"
+              component={ExpensesOverview}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="ManageExpense"
+              component={ManageExpense}
+              options={{
+                presentation: "modal", // syns mer i IOS
+              }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </ExpensesCtxProvider>
     </>
   );
 }
