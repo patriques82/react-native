@@ -11,7 +11,13 @@ const RecentExpenses = () => {
     return isWithinInterval(expense.date, weekInterval);
   });
 
-  return <ExpensesOutput expenses={recentExpenses} periodText="Last 7 days" />;
+  return (
+    <ExpensesOutput
+      expenses={recentExpenses}
+      periodText="Last 7 days"
+      fallbackText="No expenses registered for the last 7 days."
+    />
+  );
 };
 
 export default RecentExpenses;

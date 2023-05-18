@@ -4,7 +4,13 @@ import { ExpensesCtx } from "../store/expenses_ctx";
 
 const AllExpenses = () => {
   const expensesCtx = useContext(ExpensesCtx);
-  return <ExpensesOutput expenses={expensesCtx.expenses} periodText="Total" />;
+  return (
+    <ExpensesOutput
+      expenses={expensesCtx.expenses}
+      periodText="Total"
+      fallbackText="No registered expenses found!"
+    />
+  );
 };
 
 export default AllExpenses;
