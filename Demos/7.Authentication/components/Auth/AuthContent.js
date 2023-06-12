@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Alert, StyleSheet, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import FlatButton from "../ui/FlatButton";
 import AuthForm from "./AuthForm";
@@ -12,9 +13,14 @@ const AuthContent = ({ isLogin, onAuthenticate }) => {
     confirmEmail: false,
     confirmPassword: false,
   });
+  const navigation = useNavigation();
 
   const switchAuthModeHandler = () => {
-    // Todo
+    if (isLogin) {
+      navigation.replace("Signup");
+    } else {
+      navigation.replace("Login");
+    }
   };
 
   const submitHandler = (credentials) => {
